@@ -1,0 +1,12 @@
+
+
+
+.circle {
+  float: left;
+  border-radius: 50%;
+  background-color: blue;
+}
+div {
+  height: 50%;
+  width: 50%;
+}
