@@ -1,23 +1,31 @@
 $(document).ready(function() {
-  var splits = 0;
-  function mouseSplit() { 
-    $('.circle').mouseover(function () {
+  function splitOnMouseover(target) { 
+    target.mouseover(function () {
       split($(this));
     });
-    console.log(splits);
+  }
+
+  function setRandomBgColor(target) {
+    var r = Math.floor(Math.random()*255);
+    var g = Math.floor(Math.random()*255);
+    var b = Math.floor(Math.random()*255);
+    target.css('background-color', 'rgb(' + r + ',' + g + ',' + b + ')');
   }
 
   function split(circle) {
-    splits += 1;
     circle.removeClass('circle')
+          .css('background-color', 'white')
           .unbind(); 
     
-    circle.html('<div class="circle"></div>' +
-                '<div class="circle"></div>' +
-                '<div class="circle"></div>' +
-                '<div class="circle"></div>');
-    mouseSplit();
+    circle.html('<div class="circle container"></div>' +
+                '<div class="circle container"></div>' +
+                '<div class="circle container"></div>' +
+                '<div class="circle container"></div>');
+    circle.children('.circle').each( function () {
+      splitOnMouseover($(this));
+      setRandomBgColor($(this));
+    });
   }
   
-  mouseSplit();
+  splitOnMouseover($('.circle'));
 });

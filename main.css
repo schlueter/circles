@@ -1,12 +1,15 @@
-
-
-
 .circle {
-  float: left;
   border-radius: 50%;
   background-color: blue;
 }
-div {
+
+.container {
   height: 50%;
   width: 50%;
+  float: left;
 }
+
+.initial {
+  height: 400px;
+  width: 400px;
+} 
